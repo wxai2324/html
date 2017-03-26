@@ -16,6 +16,5 @@ if(!empty($_GET)){
     $userJson = json_decode($str);
     $nickName = $userJson->nickname;
     echo $nickName;
-
 }
  ?>
