@@ -6,18 +6,26 @@ if(!empty($_GET)){
     $url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid={$appId}&secret={$secret}&code={$code}&grant_type=authorization_code";
     require './http.php';
     $str =  httpRequest($url);
-    echo $str."<br>";
     $json = json_decode($str);
     $access_token = $json->access_token;
     $openid = $json->openid;
-    echo $openid."<br>";
     $url = "https://api.weixin.qq.com/sns/userinfo?access_token={$access_token}&openid={$openid}&lang=zh_CN";
     $str = httpRequest($url);
     $userJson = json_decode($str);
     $nickName = $userJson->nickname;
-    echo $nickName;
-    echo 11111111111111111111;
-    die;
+    $sex  = $userJson->sex;
+    switch ($sex){
+        case 0:
+            $sexVal = '未知';
+            break;
+        case 1:
+            $sexVal = '男';
+            break;
+        case 2:
+            $sexVal = '女';
+
+    }
+    $city = $userJson->city;
 }else{
     echo 'no key';
 }
@@ -51,13 +59,13 @@ if(!empty($_GET)){
            <div class="bdbm">
              <div class="ddnm">性别：</div>
              <div class="srk">
-               <input type="text" name="sex" value="" />
+               <input type="text" name="sex" value="<?php echo $sexVal; ?>" />
              </div>
            </div>
            <div class="bdbm">
              <div class="ddnm">地址：</div>
              <div class="srk">
-               <input type="text" name="address" value="" />
+               <input type="text" name="address" value="<?php echo $city; ?>" />
              </div>
            </div>
            <div class="bdbm">
@@ -69,7 +77,7 @@ if(!empty($_GET)){
          </div>
        </form>
        <div class="fhtj">
-         <div class="submit"><a href="javascript:;">绑定账号</a></div>
+         <div class="submit"><a href="javascript:void;">绑定账号</a></div>
        </div>
      </div>
    </div>
