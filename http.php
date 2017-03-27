@@ -1,6 +1,6 @@
 <?php
 
-function http_request($url, $data=null){
+function httpRequest($url, $data=null){
     $ch  = curl_init();
     curl_setopt($ch, CURLOPT_URL,$url);
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
