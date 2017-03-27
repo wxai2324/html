@@ -3,6 +3,7 @@ if(!empty($_GET)){
     $code = $_GET['code'];
     $appId = 'wx5a6d7968808a917f';
     $secret = '1cd88dc2eb0edadd8b091afcd14f5218';
+    //通过code换取网页授权access_token
     $url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid={$appId}&secret={$secret}&code={$code}&grant_type=authorization_code";
     require './http.php';
     $str =  httpRequest($url);
