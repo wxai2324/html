@@ -1,4 +1,4 @@
-<?php 
+<?php
 	echo 'hello world';
 ?>
 <html>
@@ -6,7 +6,7 @@
 <body>
    <ul>
 	<li>
-		hello 
+		hello ，world
 	</li>
    </ul>
 </body>
