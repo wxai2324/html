@@ -41,7 +41,7 @@ if(!empty($_GET)){
            <div class="bdbm">
              <div class="ddnm">昵称：</div>
              <div class="srk">
-               <input type="text" name="nickname" value="<?php echo $nickname;?>" />
+               <input type="text" name="nickname" value="<?php echo $nickName;?>" />
              </div>
            </div>
            <div class="bdbm">
