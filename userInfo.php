@@ -1,5 +1,6 @@
 <?php
 if(!empty($_GET)){
+
     $code = $_GET['code'];
     $appId = 'wx5a6d7968808a917f';
     $secret = '1cd88dc2eb0edadd8b091afcd14f5218';
