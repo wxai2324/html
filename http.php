@@ -10,12 +10,9 @@ function http_request($url, $data=null){
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
     }
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-
     $output = curl_exec($ch);
 
     curl_close($ch);
     return $output;
 
 }
-
