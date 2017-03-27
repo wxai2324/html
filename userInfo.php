@@ -27,6 +27,7 @@ if(!empty($_GET)){
             break;
         case 2:
             $sexVal = '女';
+            break;
 
     }
     $city = $userJson->city;
