@@ -81,7 +81,6 @@ class wechatCallbackapiTest extends Wechat
                         $contentStr = "感谢您关注羽零摔不死！";
                         $resultStr = sprintf($tmpArr['text'], $fromUsername, $toUsername, $time, $msgType, $contentStr);
                         echo $resultStr;
-                        break;
                     }
                     if ( $postObj->Event == 'CLICK' && $postObj->EventKey == 'V1001_TODAY_MUSIC') {
                         //定义相关变量
@@ -94,6 +93,7 @@ class wechatCallbackapiTest extends Wechat
                         file_put_contents('./wx.log', $resultStr, FILE_APPEND);
                         echo $resultStr;
                     }
+                    break;
                 case 'text':
                     if ($keyword == '图片') {
                         $msgType='image';
@@ -230,8 +230,29 @@ class wechatCallbackapiTest extends Wechat
                     break;
                 case 'voice':
                     $rec =  $postObj->Recognition;
+                    $url = "http://www.tuling123.com/openapi/api";
+                    $APIkey = '32a83612a27b4c36abdad47ad972a138';
+                    $ch  = curl_init();
+                    curl_setopt($ch, CURLOPT_URL, $url);
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    curl_setopt($ch, CURLOPT_POST, 1);
+                    $data = array(
+                        'key'    => $APIkey,
+                        'info'   => $rec,
+                        'userid' => $fromUsername,
+                    );
+                    $data = json_encode($data);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+                    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                            'Content-Type:application/json',
+                            'Content-Length:'.strlen($data)
+                        )
+                    );
+                    $str = curl_exec($ch);
+                    curl_close($ch);
+                    $json = json_decode($str);
                     $msgType = "text";
-                    $contentStr = "你发送的是语音信息!,内容识别为:".$rec;
+                    $contentStr = $json->text;
                     $resultStr = sprintf($tmpArr['text'], $fromUsername, $toUsername, $time, $msgType, $contentStr);
                     echo $resultStr;
                     break;
@@ -239,7 +260,7 @@ class wechatCallbackapiTest extends Wechat
                     $msgType = 'text';
                     $longitude = $postObj->Location_Y;
                     $latitude = $postObj->Location_X;
-                    $contentStr = '您发送的是地址位置消息，经度:'.$longitude.'，纬度:'.$latitude;
+                    $contentStr = '您发送的是地址位置消息，经度:'.(string)$longitude.'，纬度:'.(string)$latitude;
                     $resultStr = sprintf($tmpArr['text'], $fromUsername, $toUsername, $time, $msgType, $contentStr);
                     echo $resultStr;
                     break;
