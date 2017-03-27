@@ -9,6 +9,9 @@ if(!empty($_GET)){
     $json = json_decode($str);
     $access_token = $json->access_token;
     $openid = $json->openid;
+
+
+    //根据openid 获取用户信息
     $url = "https://api.weixin.qq.com/sns/userinfo?access_token={$access_token}&openid={$openid}&lang=zh_CN";
     $str = httpRequest($url);
     $userJson = json_decode($str);

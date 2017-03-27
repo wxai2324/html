@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="686d19fe-78c9-4a12-96e4-db3a8b21f187" name="默认的" comment="添加语音与图灵机器人关联功能">
+    <list default="true" id="686d19fe-78c9-4a12-96e4-db3a8b21f187" name="默认的" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jssdk.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/http.php" afterPath="$PROJECT_DIR$/http.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/userInfo.php" afterPath="$PROJECT_DIR$/userInfo.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,9 +33,28 @@
       <file leaf-file-name="userInfo.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/userInfo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-              <folding />
+            <state relative-caret-position="351">
+              <caret line="13" column="21" lean-forward="false" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+              <folding>
+                <marker date="1490617032461" expanded="true" signature="986:1528" ph="..." />
+                <marker date="1490617032461" expanded="true" signature="994:1276" ph="..." />
+                <marker date="1490617032461" expanded="true" signature="1284:1528" ph="..." />
+                <marker date="1490617032461" expanded="true" signature="1380:1528" ph="..." />
+                <marker date="1490617032461" expanded="true" signature="1691:2896" ph="..." />
+                <marker date="1490617032461" expanded="true" signature="1721:2888" ph="..." />
+                <marker date="1490617032461" expanded="true" signature="1744:2878" ph="..." />
+                <marker date="1490617032461" expanded="true" signature="1811:2755" ph="..." />
+                <marker date="1490617032461" expanded="true" signature="1841:2740" ph="..." />
+                <marker date="1490617032461" expanded="true" signature="1871:2066" ph="..." />
+                <marker date="1490617032461" expanded="true" signature="1943:2048" ph="..." />
+                <marker date="1490617032461" expanded="true" signature="2096:2285" ph="..." />
+                <marker date="1490617032461" expanded="true" signature="2168:2267" ph="..." />
+                <marker date="1490617032461" expanded="true" signature="2315:2506" ph="..." />
+                <marker date="1490617032461" expanded="true" signature="2387:2488" ph="..." />
+                <marker date="1490617032461" expanded="true" signature="2536:2724" ph="..." />
+                <marker date="1490617032461" expanded="true" signature="2608:2706" ph="..." />
+                <marker date="1490617032461" expanded="true" signature="2781:2866" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -42,8 +62,8 @@
       <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="130" column="61" lean-forward="false" selection-start-line="130" selection-start-column="61" selection-end-line="130" selection-end-column="61" />
+            <state relative-caret-position="510">
+              <caret line="186" column="56" lean-forward="true" selection-start-line="186" selection-start-column="56" selection-end-line="186" selection-end-column="56" />
               <folding>
                 <marker date="1490612800186" expanded="true" signature="4616:5021" ph="..." />
                 <marker date="1490612800186" expanded="true" signature="5478:5883" ph="..." />
@@ -194,7 +214,7 @@
       <option name="presentableId" value="Default" />
       <updated>1490600338425</updated>
       <workItem from="1490600339848" duration="1127000" />
-      <workItem from="1490612399529" duration="1032000" />
+      <workItem from="1490612399529" duration="3988000" />
     </task>
     <task id="LOCAL-00001" summary="修正">
       <created>1490600716843</created>
@@ -217,11 +237,39 @@
       <option name="project" value="LOCAL" />
       <updated>1490613150378</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="测试userinfo">
+      <created>1490613457998</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1490613457998</updated>
+    </task>
+    <task id="LOCAL-00005" summary="测试userinfo">
+      <created>1490613840560</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1490613840560</updated>
+    </task>
+    <task id="LOCAL-00006" summary="测试userinfo">
+      <created>1490614052217</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1490614052217</updated>
+    </task>
+    <task id="LOCAL-00007" summary="测试userinfo">
+      <created>1490615882516</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1490615882516</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2159000" />
+    <option name="totallyTimeSpent" value="5115000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1932" height="1066" extended-state="0" />
@@ -257,7 +305,8 @@
     <MESSAGE value="修正" />
     <MESSAGE value="添加语音与图灵机器人关联功能" />
     <MESSAGE value="测试userInfo" />
-    <option name="LAST_COMMIT_MESSAGE" value="测试userInfo" />
+    <MESSAGE value="测试userinfo" />
+    <option name="LAST_COMMIT_MESSAGE" value="测试userinfo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -274,10 +323,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/http.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="130" column="61" lean-forward="false" selection-start-line="130" selection-start-column="61" selection-end-line="130" selection-end-column="61" />
+        <state relative-caret-position="510">
+          <caret line="186" column="56" lean-forward="true" selection-start-line="186" selection-start-column="56" selection-end-line="186" selection-end-column="56" />
           <folding>
             <marker date="1490612800186" expanded="true" signature="4616:5021" ph="..." />
             <marker date="1490612800186" expanded="true" signature="5478:5883" ph="..." />
@@ -287,19 +344,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/http.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/userInfo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-          <folding />
+        <state relative-caret-position="351">
+          <caret line="13" column="21" lean-forward="false" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+          <folding>
+            <marker date="1490617032461" expanded="true" signature="986:1528" ph="..." />
+            <marker date="1490617032461" expanded="true" signature="994:1276" ph="..." />
+            <marker date="1490617032461" expanded="true" signature="1284:1528" ph="..." />
+            <marker date="1490617032461" expanded="true" signature="1380:1528" ph="..." />
+            <marker date="1490617032461" expanded="true" signature="1691:2896" ph="..." />
+            <marker date="1490617032461" expanded="true" signature="1721:2888" ph="..." />
+            <marker date="1490617032461" expanded="true" signature="1744:2878" ph="..." />
+            <marker date="1490617032461" expanded="true" signature="1811:2755" ph="..." />
+            <marker date="1490617032461" expanded="true" signature="1841:2740" ph="..." />
+            <marker date="1490617032461" expanded="true" signature="1871:2066" ph="..." />
+            <marker date="1490617032461" expanded="true" signature="1943:2048" ph="..." />
+            <marker date="1490617032461" expanded="true" signature="2096:2285" ph="..." />
+            <marker date="1490617032461" expanded="true" signature="2168:2267" ph="..." />
+            <marker date="1490617032461" expanded="true" signature="2315:2506" ph="..." />
+            <marker date="1490617032461" expanded="true" signature="2387:2488" ph="..." />
+            <marker date="1490617032461" expanded="true" signature="2536:2724" ph="..." />
+            <marker date="1490617032461" expanded="true" signature="2608:2706" ph="..." />
+            <marker date="1490617032461" expanded="true" signature="2781:2866" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
