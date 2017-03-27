@@ -14,6 +14,7 @@ if(!empty($_GET)){
     $userJson = json_decode($str);
     $nickName = $userJson->nickname;
     echo $nickName;
+    echo 11111111111111111111;
 }else{
     echo 'no key';
 }
