@@ -1,5 +1,5 @@
 <?php
-require_once "jssdk.php";
+require_once "./jssdk.php";
 $jssdk = new JSSDK("wx5a6d7968808a917f", "1cd88dc2eb0edadd8b091afcd14f5218");
 $signPackage = $jssdk->GetSignPackage();
 ?>
