@@ -59,7 +59,7 @@ $signPackage = $jssdk->GetSignPackage();
   wx.ready(function () {
     // 在这里调用 API
     document.getElementById('btnok').onclick = function(){
-        wx.onMenuShareTimeLine({
+        wx.onMenuShareTimeline({
             title : '最实用的47个让你拍照好看的技术',
             link  : 'http://www.featherzero.me/',
             imgUrl : 'http://www.featherzero.me/img/1.jpg',
