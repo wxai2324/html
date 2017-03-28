@@ -83,7 +83,7 @@ if(!empty($_GET)){
          </div>
        </form>
        <div class="fhtj">
-         <div class="submit"><a href="javascript:void;">绑定账号</a></div>
+         <div class="submit"><a href="'http://www.featherzero.me/smaple.php?number='+Math.random()">绑定账号</a></div>
        </div>
      </div>
    </div>
