@@ -58,18 +58,21 @@ $signPackage = $jssdk->GetSignPackage();
   });
   wx.ready(function () {
     // 在这里调用 API
-    document.getElementById('btnok').onclick = function(){
-        wx.onMenuShareTimeline({
-            title : '最实用的47个让你拍照好看的技术',
-            link  : 'http://www.featherzero.me/',
-            imgUrl : 'http://www.featherzero.me/img/1.jpg',
-            success : function(){
-                alert('success');
-            },
-            cancel : function(){
-                alert('cancel');
-            }
-        })
+    document.getElementById('btnok').onclick = function() {
+        //2、编写分享到朋友圈接口
+    	wx.onMenuShareTimeline({
+    	    title: '最实用的47个让你拍照好看的方法', // 分享标题
+    	    link: 'http://www.featherzero.me/', // 分享链接
+    	    imgUrl: 'http://www.featherzero/img/1.jpg', // 分享图标
+    	    success: function () {
+    	        // 用户确认分享后执行的回调函数
+    	        alert('success');
+    	    },
+    	    cancel: function () {
+    	        // 用户取消分享后执行的回调函数
+    	        alert('cancel');
+    	    }
+    	});
     }
 
   });
