@@ -1,6 +1,6 @@
 <?php
 require_once "jssdk.php";
-$jssdk = new JSSDK("yourAppID", "yourAppSecret");
+$jssdk = new JSSDK("wx5a6d7968808a917f", "1cd88dc2eb0edadd8b091afcd14f5218");
 $signPackage = $jssdk->GetSignPackage();
 ?>
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ $signPackage = $jssdk->GetSignPackage();
   <title></title>
 </head>
 <body>
-  
+
 </body>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
@@ -33,10 +33,25 @@ $signPackage = $jssdk->GetSignPackage();
     signature: '<?php echo $signPackage["signature"];?>',
     jsApiList: [
       // 所有要调用的 API 都要加到这个列表中
+      'onMenuShareTimeLine'
     ]
   });
   wx.ready(function () {
     // 在这里调用 API
+    document.getElementById('btnok').onclick = function(){
+        wx.onMenuShareTimeLine({
+            title : '最实用的47个让你拍照好看的技术',
+            link  : 'http://www.featherzero.me/',
+            imgUrl : 'http://www.featherzero.me/img/1.jpg',
+            success : function(){
+                alert('success');
+            },
+            cancel : function(){
+                alert('cancel');
+            }
+        })
+    }
+
   });
 </script>
 </html>
