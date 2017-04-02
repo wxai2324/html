@@ -10,8 +10,8 @@ $tmpArr = array(
     <FuncFlag>0</FuncFlag>
     </xml>
 EOF
-    ,
-    'image'=> <<<EOF
+,
+    'image' => <<<EOF
 <xml>
 <ToUserName><![CDATA[%s]]></ToUserName>
 <FromUserName><![CDATA[%s]]></FromUserName>
@@ -22,8 +22,8 @@ EOF
 </Image>
 </xml>
 EOF
-    ,
-    'music'=> <<<EOF
+,
+    'music' => <<<EOF
     <xml>
     <ToUserName><![CDATA[%s]]></ToUserName>
     <FromUserName><![CDATA[%s]]></FromUserName>
@@ -38,7 +38,7 @@ EOF
     </Music>
     </xml>
 EOF
-    ,
+,
     'news' => <<<TOF
     <xml>
 <ToUserName><![CDATA[%s]]></ToUserName>

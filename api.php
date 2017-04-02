@@ -15,7 +15,7 @@ class wechatCallbackapiTest extends Wechat
         $echoStr = $_GET["echostr"];
 
         //valid signature , option
-        if($this->checkSignature()){
+        if ($this->checkSignature()) {
             echo $echoStr;
             exit;
         }
@@ -36,12 +36,12 @@ class wechatCallbackapiTest extends Wechat
         $tmpArr = array($token, $timestamp, $nonce);
         // use SORT_STRING rule
         sort($tmpArr, SORT_STRING);
-        $tmpStr = implode( $tmpArr );
-        $tmpStr = sha1( $tmpStr );
+        $tmpStr = implode($tmpArr);
+        $tmpStr = sha1($tmpStr);
 
-        if( $tmpStr == $signature ){
+        if ($tmpStr == $signature) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
@@ -52,7 +52,7 @@ class wechatCallbackapiTest extends Wechat
         $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
 
         //extract post data
-        if (!empty($postStr)){
+        if (!empty($postStr)) {
             /* libxml_disable_entity_loader is to prevent XML eXternal Entity Injection,
                the best way is to check the validity of xml by yourself */
             //防xxe攻击
@@ -76,19 +76,19 @@ class wechatCallbackapiTest extends Wechat
                     echo $resultStr;
                     break;
                 case 'event':
-                    if ( $postObj->Event == 'subscribe' ) {
+                    if ($postObj->Event == 'subscribe') {
                         $msgType = "text";
                         $contentStr = "感谢您关注羽零摔不死！";
                         $resultStr = sprintf($tmpArr['text'], $fromUsername, $toUsername, $time, $msgType, $contentStr);
                         echo $resultStr;
                     }
-                    if ( $postObj->Event == 'CLICK' && $postObj->EventKey == 'V1001_TODAY_MUSIC') {
+                    if ($postObj->Event == 'CLICK' && $postObj->EventKey == 'V1001_TODAY_MUSIC') {
                         //定义相关变量
-                        $msgType= 'music';
+                        $msgType = 'music';
                         $title = '冰雪奇缘';
                         $description = '冰雪奇缘原声大碟';
                         $musicUrl = 'http://www.featherzero.me/music/music.mp3';
-                        $thumbMediaId='auAE-uRWaAnVf1bcypf-oWQzUyKC61nwjPCJFM1Hg5N38-VyW-vdJrkSlTmJF6Ln';
+                        $thumbMediaId = 'auAE-uRWaAnVf1bcypf-oWQzUyKC61nwjPCJFM1Hg5N38-VyW-vdJrkSlTmJF6Ln';
                         $resultStr = sprintf($tmpArr['music'], $fromUsername, $toUsername, $time, $msgType, $title, $description, $musicUrl, $musicUrl, $thumbMediaId);
                         file_put_contents('./wx.log', $resultStr, FILE_APPEND);
                         echo $resultStr;
@@ -96,20 +96,20 @@ class wechatCallbackapiTest extends Wechat
                     break;
                 case 'text':
                     if ($keyword == '图片') {
-                        $msgType='image';
+                        $msgType = 'image';
                         $media_id = 'YAjCPiWxsTbs7fCg_y3_CsxHueTv6iX-9t6uu1RwKAwS6F-Xu8GqGP3aSpfdEMcz';
                         $resultStr = sprintf($tmpArr['image'], $fromUsername, $toUsername, $time, $msgType, $media_id);
                         echo $resultStr;
-                    }elseif($keyword == '音乐'){
-                        $msgType='music';
+                    } elseif ($keyword == '音乐') {
+                        $msgType = 'music';
                         $title = '色は匂へど散りぬるを';
-                        $description= '东方系列音乐';
+                        $description = '东方系列音乐';
                         $musicUrl = 'http://www.featherzero.me/music/2.mp3';
                         $thumbMediaId = 'auAE-uRWaAnVf1bcypf-oWQzUyKC61nwjPCJFM1Hg5N38-VyW-vdJrkSlTmJF6Ln';
                         $resultStr = sprintf($tmpArr['music'], $fromUsername, $toUsername, $time, $msgType, $title, $description, $musicUrl, $musicUrl, $thumbMediaId);
                         file_put_contents('./wx.log', $resultStr, FILE_APPEND);
                         echo $resultStr;
-                    }elseif($keyword == '单图文'){
+                    } elseif ($keyword == '单图文') {
                         $msgType = "news";
                         $contentStr = '
                                 <item>
@@ -121,8 +121,8 @@ class wechatCallbackapiTest extends Wechat
                         $count = 1;
                         $resultStr = sprintf($tmpArr['news'], $fromUsername, $toUsername, $time, $msgType, $count, $contentStr);
                         echo $resultStr;
-                        file_put_contents('./wx.log' ,$resultStr,FILE_APPEND);
-                    }elseif($keyword == '多图文'){
+                        file_put_contents('./wx.log', $resultStr, FILE_APPEND);
+                    } elseif ($keyword == '多图文') {
                         $msgType = "news";
                         $contentStr = '
                                 <item>
@@ -140,8 +140,8 @@ class wechatCallbackapiTest extends Wechat
                         $count = 2;
                         $resultStr = sprintf($tmpArr['news'], $fromUsername, $toUsername, $time, $msgType, $count, $contentStr);
                         echo $resultStr;
-                        file_put_contents('./wx.log',$resultStr,FILE_APPEND);
-                    }elseif($keyword == '客服'){
+                        file_put_contents('./wx.log', $resultStr, FILE_APPEND);
+                    } elseif ($keyword == '客服') {
                         //1.获取access_token
                         $accessToken = $this->getToken();
                         //2.定义请求的url链接
@@ -151,9 +151,9 @@ class wechatCallbackapiTest extends Wechat
                         //4.使用urlencode函数进行编码，防止出现中文乱码
                         $contentStr = urlencode($contentStr);
                         //5.组装数组
-                        $contentArr = array('content'=> $contentStr);
+                        $contentArr = array('content' => $contentStr);
                         //6.
-                        $replyArr = array('touser' => "$fromUsername", 'msgtype'=> 'text', 'text'=> $contentArr);
+                        $replyArr = array('touser' => "$fromUsername", 'msgtype' => 'text', 'text' => $contentArr);
                         //7.
                         $data = json_encode($replyArr);
                         //8.
@@ -163,30 +163,30 @@ class wechatCallbackapiTest extends Wechat
 
                         //9.
                         $this->httpRequest($url, $data);
-                    }elseif ($keyword == '图文') {
+                    } elseif ($keyword == '图文') {
                         $accessToken = $this->getToken();
                         //2.定义请求的url链接
                         $url = "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token={$accessToken}";
                         $contentArr1 = array(
-                            'title' =>urlencode('最实用的47个让你拍照好看的方法') ,
-                            'url'   =>'http://www.featherzero.me/',
-                            'picurl'=>'http://www.featherzero.me/music/1.jpg'
+                            'title' => urlencode('最实用的47个让你拍照好看的方法'),
+                            'url' => 'http://www.featherzero.me/',
+                            'picurl' => 'http://www.featherzero.me/music/1.jpg'
                         );
                         $contentArr2 = array(
-                            'title' =>urlencode('台湾水果种类大全有哪些是你不容错过的？'),
-                            'url'   =>'http://www.featherzero.me/',
-                            'picurl'=>'http://www.featherzero.me/music/2.jpg'
+                            'title' => urlencode('台湾水果种类大全有哪些是你不容错过的？'),
+                            'url' => 'http://www.featherzero.me/',
+                            'picurl' => 'http://www.featherzero.me/music/2.jpg'
                         );
                         $contentArr = array($contentArr1, $contentArr2);
-                        $contentArr = array('articles'=>$contentArr);
-                        $replyArr = array('touser'=>"{$fromUsername}", 'msgtype'=>'news', 'news'=>$contentArr);
+                        $contentArr = array('articles' => $contentArr);
+                        $replyArr = array('touser' => "{$fromUsername}", 'msgtype' => 'news', 'news' => $contentArr);
                         $data = json_encode($replyArr);
                         $data = urldecode($data);
                         file_put_contents('wx.log', $data, FILE_APPEND);
                         file_put_contents('wx.log', $url, FILE_APPEND);
                         $this->httpRequest($url, $data);
 
-                    }elseif($keyword == '授权'){
+                    } elseif ($keyword == '授权') {
                         $msgType = 'news';
                         $contentStr = '
                         <item>
@@ -195,27 +195,27 @@ class wechatCallbackapiTest extends Wechat
                                 <PicUrl><![CDATA[http://www.featherzero.me/img/3.jpg]]></PicUrl>
                                 <Url><![CDATA[https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5a6d7968808a917f&redirect_uri=http://www.featherzero.me/userInfo.php&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect]]></Url>
                         </item>';
-                        $count=1;
+                        $count = 1;
                         $resultStr = sprintf($tmpArr['news'], $fromUsername, $toUsername, $time, $msgType, $count, $contentStr);
                         echo $resultStr;
-                    }else{
+                    } else {
                         $url = "http://www.tuling123.com/openapi/api";
                         $APIkey = '32a83612a27b4c36abdad47ad972a138';
 
-                        $ch  = curl_init();
+                        $ch = curl_init();
                         curl_setopt($ch, CURLOPT_URL, $url);
                         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                         curl_setopt($ch, CURLOPT_POST, 1);
                         $data = array(
-                            'key'    => $APIkey,
-                            'info'   => $keyword,
+                            'key' => $APIkey,
+                            'info' => $keyword,
                             'userid' => $fromUsername,
                         );
                         $data = json_encode($data);
                         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
                         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                            'Content-Type:application/json',
-                            'Content-Length:'.strlen($data)
+                                'Content-Type:application/json',
+                                'Content-Length:' . strlen($data)
                             )
                         );
                         $str = curl_exec($ch);
@@ -229,23 +229,23 @@ class wechatCallbackapiTest extends Wechat
                     }
                     break;
                 case 'voice':
-                    $rec =  $postObj->Recognition;
+                    $rec = $postObj->Recognition;
                     $url = "http://www.tuling123.com/openapi/api";
                     $APIkey = '32a83612a27b4c36abdad47ad972a138';
-                    $ch  = curl_init();
+                    $ch = curl_init();
                     curl_setopt($ch, CURLOPT_URL, $url);
                     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                     curl_setopt($ch, CURLOPT_POST, 1);
                     $data = array(
-                        'key'    => $APIkey,
-                        'info'   => $rec,
+                        'key' => $APIkey,
+                        'info' => $rec,
                         'userid' => $fromUsername,
                     );
                     $data = json_encode($data);
                     curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
                     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
                             'Content-Type:application/json',
-                            'Content-Length:'.strlen($data)
+                            'Content-Length:' . strlen($data)
                         )
                     );
                     $str = curl_exec($ch);
@@ -260,17 +260,18 @@ class wechatCallbackapiTest extends Wechat
                     $msgType = 'text';
                     $longitude = $postObj->Location_Y;
                     $latitude = $postObj->Location_X;
-                    $contentStr = '您发送的是地址位置消息，经度:'.(string)$longitude.'，纬度:'.(string)$latitude;
+                    $contentStr = '您发送的是地址位置消息，经度:' . (string)$longitude . '，纬度:' . (string)$latitude;
                     $resultStr = sprintf($tmpArr['text'], $fromUsername, $toUsername, $time, $msgType, $contentStr);
                     echo $resultStr;
                     break;
             }
-        }else {
+        } else {
             echo "";
             exit;
         }
     }
 }
+
 $wechatObj = new wechatCallbackapiTest();
 //$wechatObj->valid();
 //开启了自动回复功能

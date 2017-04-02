@@ -1,13 +1,13 @@
 <?php
-	echo 'hello world';
+echo 'hello world';
 ?>
 <html>
-<head> </head>
+<head></head>
 <body>
-   <ul>
-	<li>
-		hello ，world
-	</li>
-   </ul>
+<ul>
+    <li>
+        hello ，world
+    </li>
+</ul>
 </body>
 </html>
